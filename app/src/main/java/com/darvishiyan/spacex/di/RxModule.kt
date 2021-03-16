@@ -1,4 +1,4 @@
-package com.darvishiyan.spacex.di.modules
+package com.darvishiyan.spacex.di
 
 import io.reactivex.disposables.CompositeDisposable
 import org.koin.dsl.module

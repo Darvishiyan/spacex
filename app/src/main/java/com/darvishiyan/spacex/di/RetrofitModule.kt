@@ -1,4 +1,4 @@
-package com.darvishiyan.spacex.di.modules
+package com.darvishiyan.spacex.di
 
 import com.google.gson.GsonBuilder
 import org.koin.dsl.module

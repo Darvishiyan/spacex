@@ -1,4 +1,4 @@
-package com.darvishiyan.spacex.di.modules
+package com.darvishiyan.spacex.di
 
 import com.darvishiyan.spacex.BuildConfig
 import okhttp3.Interceptor
