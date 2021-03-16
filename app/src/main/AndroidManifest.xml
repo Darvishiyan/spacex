@@ -9,6 +9,14 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/Theme.SpaceX" />
+        android:theme="@style/Theme.SpaceX">
+        <activity android:name=".units.main.MainActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+            <nav-graph android:value="@navigation/navigation_main" />
+        </activity>
+    </application>
 
 </manifest>
