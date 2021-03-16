@@ -1,24 +1,33 @@
 package com.darvishiyan.spacex.core
 
 import android.app.Application
-import androidx.appcompat.app.AppCompatActivity
-import com.darvishiyan.spacex.di.components.ApplicationComponent
-import com.darvishiyan.spacex.di.components.DaggerApplicationComponent
+import com.darvishiyan.spacex.di.modules.*
+import org.koin.android.ext.koin.androidContext
+import org.koin.android.logger.AndroidLogger
+import org.koin.core.context.startKoin
+import org.koin.core.logger.Level
 
 class App : Application() {
 
-    private lateinit var applicationComponent: ApplicationComponent
-
-    companion object {
-        fun getApplication(activity: AppCompatActivity) = activity.application as App
-    }
-
     override fun onCreate() {
         super.onCreate()
-        applicationComponent = DaggerApplicationComponent.builder().build()
+        runKoin()
     }
 
-    fun getApplicationComponent() = applicationComponent
-
+    private fun runKoin() {
+        startKoin {
+            androidContext(this@App)
+            logger(AndroidLogger(Level.DEBUG))
+            modules(
+                listOf(
+                    oOkHttpClientModule,
+                    retrofitModule,
+                    rxModule,
+                    networkModule,
+                    mainActivityModule
+                )
+            )
+        }
+    }
 
 }

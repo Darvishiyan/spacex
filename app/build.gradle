@@ -57,10 +57,10 @@ dependencies {
     implementation "androidx.navigation:navigation-dynamic-features-fragment:$navigation_version"
     androidTestImplementation "androidx.navigation:navigation-testing:$navigation_version"
 
-    //dagger
-    implementation 'com.google.dagger:dagger:2.32'
-    kapt 'com.google.dagger:dagger-android-processor:2.32'
-    kapt 'com.google.dagger:dagger-compiler:2.32'
+    //koin
+    implementation 'org.koin:koin-android:2.0.1'
+    implementation 'org.koin:koin-android-viewmodel:2.0.1'
+    implementation 'org.koin:koin-androidx-viewmodel:2.0.1'
 
     //rx
     implementation 'io.reactivex.rxjava2:rxkotlin:2.3.0'

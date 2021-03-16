@@ -12,18 +12,15 @@ abstract class BaseActivity<VM : BaseViewModel<DB, BaseModel>, DB : ViewDataBind
 
     abstract val layoutResId: Int
     abstract val viewModelId: Int
-    abstract var viewModel: VM
+    abstract val viewModel: VM
     lateinit var binding: DB
         private set
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        daggerComponentBuilder()
         binding = bindView(viewModel)
         onViewBounded(binding.root, savedInstanceState)
     }
-
-    abstract fun daggerComponentBuilder()
 
     private fun bindView(viewModel: VM): DB {
         return DataBindingUtil.setContentView<DB>(this, layoutResId).apply {
