@@ -2,6 +2,8 @@ package com.darvishiyan.spacex.di
 
 import com.google.gson.GsonBuilder
 import org.koin.dsl.module
+import retrofit2.CallAdapter
+import retrofit2.Converter
 import retrofit2.Retrofit
 import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory
 import retrofit2.converter.gson.GsonConverterFactory
@@ -10,10 +12,9 @@ val retrofitModule = module {
 
     factory { GsonBuilder().create() }
 
-    factory { GsonConverterFactory.create(get()) }
+    factory<Converter.Factory> { GsonConverterFactory.create(get()) }
 
-    //CallAdapter.Factory
-    factory { RxJava2CallAdapterFactory.create() }
+    factory<CallAdapter.Factory> { RxJava2CallAdapterFactory.create() }
 
     single<Retrofit> {
         Retrofit.Builder()
