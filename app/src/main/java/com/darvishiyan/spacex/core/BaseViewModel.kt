@@ -8,8 +8,12 @@ import androidx.databinding.ViewDataBinding
 import androidx.lifecycle.LifecycleObserver
 import androidx.lifecycle.LifecycleOwner
 import androidx.lifecycle.ViewModel
+import org.koin.core.KoinComponent
 
-abstract class BaseViewModel<DB : ViewDataBinding, M : BaseModel> : ViewModel(), Observable,
+abstract class BaseViewModel<DB : ViewDataBinding, M : BaseModel> :
+    ViewModel(),
+    Observable,
+    KoinComponent,
     LifecycleObserver {
 
     abstract val model: M
