@@ -1,7 +1,7 @@
 package com.darvishiyan.spacex.core
 
 import android.app.Application
-import com.darvishiyan.spacex.di.modules.*
+import com.darvishiyan.spacex.di.*
 import org.koin.android.ext.koin.androidContext
 import org.koin.android.logger.AndroidLogger
 import org.koin.core.context.startKoin
@@ -24,7 +24,8 @@ class App : Application() {
                     retrofitModule,
                     rxModule,
                     networkModule,
-                    mainActivityModule
+                    mainActivityModule,
+                    launchFragmentModule,
                 )
             )
         }
