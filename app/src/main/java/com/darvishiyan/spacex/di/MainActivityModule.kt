@@ -9,6 +9,6 @@ val mainActivityModule = module {
 
     factory { MainModel(get()) }
 
-    viewModel { MainViewModel(get()) }
+    viewModel { MainViewModel(get(), get()) }
 
 }

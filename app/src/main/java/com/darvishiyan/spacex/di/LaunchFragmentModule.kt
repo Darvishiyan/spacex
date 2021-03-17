@@ -11,7 +11,7 @@ val launchFragmentModule = module {
 
     factory { LaunchModel(get(), get()) }
 
-    viewModel { LaunchViewModel(get()) }
+    viewModel { LaunchViewModel(get(), get()) }
 
     factory { (open: (item: Launch) -> Unit) -> LaunchAdapter(open) }
 

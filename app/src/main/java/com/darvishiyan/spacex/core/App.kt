@@ -20,6 +20,7 @@ class App : Application() {
             logger(AndroidLogger(Level.DEBUG))
             modules(
                 listOf(
+                    appModule,
                     oOkHttpClientModule,
                     retrofitModule,
                     rxModule,
