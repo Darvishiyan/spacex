@@ -12,20 +12,20 @@ class LaunchViewModel(
     override val model: LaunchModel
 ) : BaseViewModel<ViewDataBinding, BaseModel>() {
 
+    val itemAdapter: LaunchAdapter by inject { parametersOf(openItem) }
+
     private val openLaunchItem: PublishSubject<Launch> = PublishSubject.create()
 
     private val openItem = fun(item: Launch) {
         openLaunchItem.onNext(item)
     }
 
-    val itemAdapter: LaunchAdapter by inject { parametersOf(openItem) }
-
     init {
         model.getLaunches(
             {
                 //show loading
-            }, {
-                itemAdapter.items = it
+            }, { data ->
+                itemAdapter.items = data.sortedByDescending { it.staticFireDateUnix }
             }, {
                 //show error
             }, {
