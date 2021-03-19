@@ -6,11 +6,10 @@ import com.darvishiyan.spacex.core.BaseItemViewModel
 import com.darvishiyan.spacex.core.BaseRecyclerViewAdapter
 import com.darvishiyan.spacex.dataaccess.models.Launch
 import com.darvishiyan.spacex.units.launches.item.LaunchItemItemViewModel
-import org.koin.core.KoinComponent
 
 class LaunchAdapter(
     private val open: (item: Launch) -> Unit
-) : BaseRecyclerViewAdapter<Launch>(), KoinComponent {
+) : BaseRecyclerViewAdapter<Launch>() {
 
     override val itemLayoutResId = R.layout.fragment_launch_item
     override val viewModelId = BR.vm

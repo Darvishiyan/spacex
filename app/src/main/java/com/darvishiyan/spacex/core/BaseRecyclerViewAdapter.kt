@@ -8,10 +8,9 @@ import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.LifecycleOwner
 import androidx.lifecycle.LifecycleRegistry
 import androidx.recyclerview.widget.RecyclerView
-import org.koin.core.KoinComponent
 
 abstract class BaseRecyclerViewAdapter<T> :
-    RecyclerView.Adapter<BaseRecyclerViewAdapter<T>.ItemViewHolder>(), KoinComponent {
+    RecyclerView.Adapter<BaseRecyclerViewAdapter<T>.ItemViewHolder>() {
 
     abstract val itemLayoutResId: Int
     abstract val viewModelId: Int
