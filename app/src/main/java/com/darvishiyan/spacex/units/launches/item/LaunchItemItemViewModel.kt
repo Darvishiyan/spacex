@@ -13,6 +13,6 @@ class LaunchItemItemViewModel(
 
     fun openLaunch() = open(launch)
 
-    val date = launch.staticFireDateUtc?.getDateWithServerTimeStamp()?.getVisualizeDate() ?: ""
+    val date = launch.dateUtc?.getDateWithServerTimeStamp()?.getVisualizeDate() ?: ""
 
 }
