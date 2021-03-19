@@ -70,11 +70,11 @@ dependencies {
     //internet connection
     implementation 'com.squareup.retrofit2:retrofit:2.9.0'
     implementation 'com.squareup.retrofit2:converter-gson:2.9.0'
-    implementation 'com.squareup.retrofit2:adapter-rxjava2:2.6.4'
-    implementation 'com.squareup.okhttp3:okhttp:4.7.2'
-    implementation 'com.squareup.okhttp3:logging-interceptor:4.4.0'
+    implementation 'com.squareup.retrofit2:adapter-rxjava2:2.9.0'
+    implementation 'com.squareup.okhttp3:okhttp:5.0.0-alpha.2'
+    implementation 'com.squareup.okhttp3:logging-interceptor:5.0.0-alpha.2'
     //fix: Rejecting re-init on previously-failed class in OkHttp
-    implementation 'org.conscrypt:conscrypt-android:2.2.1'
+    implementation 'org.conscrypt:conscrypt-android:2.5.1'
 
     //load image
     implementation 'com.squareup.picasso:picasso:2.71828'
