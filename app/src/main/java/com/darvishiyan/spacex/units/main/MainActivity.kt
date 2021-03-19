@@ -1,6 +1,7 @@
 package com.darvishiyan.spacex.units.main
 
 import android.view.MenuItem
+import androidx.appcompat.app.AlertDialog
 import androidx.databinding.ViewDataBinding
 import androidx.lifecycle.LifecycleOwner
 import com.darvishiyan.spacex.BR
@@ -22,9 +23,22 @@ class MainActivity : BaseActivity<MainViewModel, ViewDataBinding>() {
                 supportActionBar?.setDisplayHomeAsUpEnabled(true)
             }
         }
+
         viewModel.eventHandler.resetActionBarTitleObserver.observe(viewLifecycleOwner) {
             supportActionBar?.title = getString(R.string.app_name)
             supportActionBar?.setDisplayHomeAsUpEnabled(false)
+        }
+
+        viewModel.eventHandler.showErrorDialogObserver.observe(viewLifecycleOwner) { event ->
+            event.getContentIfNotHandled()?.let { data ->
+                AlertDialog.Builder(this)
+                    .setTitle(data.title)
+                    .setMessage(data.message)
+                    .setPositiveButton(data.action) { dialog, _ ->
+                        dialog.dismiss()
+                        data.run()
+                    }.show()
+            }
         }
     }
 
