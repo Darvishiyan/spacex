@@ -2,6 +2,6 @@
     <string name="app_name">SpaceX</string>
     <string name="offline">offline</string>
     <string name="load_data_error_title">Load Data Error</string>
-    <string name="load_data_error_message">Error receiving data, please try again.</string>
+    <string name="load_data_error_message">Error receiving data, please your internet connection and try again.</string>
     <string name="load_data_error_action">Reload</string>
 </resources>

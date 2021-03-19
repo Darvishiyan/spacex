@@ -1,8 +1,12 @@
 package com.darvishiyan.spacex.models
 
-data class ErrorDialog(
+import android.os.Parcelable
+import kotlinx.parcelize.Parcelize
+
+@Parcelize
+data class ErrorDialogModel(
     val title: Int,
     val message: Int,
     val action: Int,
     val run: () -> Unit
-)
+) : Parcelable

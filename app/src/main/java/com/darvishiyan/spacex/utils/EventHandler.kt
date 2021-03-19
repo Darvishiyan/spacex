@@ -2,7 +2,7 @@ package com.darvishiyan.spacex.utils
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
-import com.darvishiyan.spacex.models.ErrorDialog
+import com.darvishiyan.spacex.models.ErrorDialogModel
 
 @Suppress("UNCHECKED_CAST")
 class EventHandler {
@@ -43,12 +43,12 @@ class EventHandler {
         _resetActionBarTitle.call()
     }
 
-    private val _showErrorDialog = MutableLiveData<Event<ErrorDialog>>()
+    private val _showErrorDialog = MutableLiveData<Event<ErrorDialogModel>>()
 
-    val showErrorDialogObserver: LiveData<Event<ErrorDialog>>
+    val showErrorDialogObserver: LiveData<Event<ErrorDialogModel>>
         get() = _showErrorDialog
 
-    fun showErrorDialog(data: ErrorDialog) {
+    fun showErrorDialog(data: ErrorDialogModel) {
         _showErrorDialog.value = Event(data)
     }
 

@@ -5,7 +5,7 @@ import com.darvishiyan.spacex.R
 import com.darvishiyan.spacex.core.BaseModel
 import com.darvishiyan.spacex.core.BaseViewModel
 import com.darvishiyan.spacex.dataaccess.models.Launch
-import com.darvishiyan.spacex.models.ErrorDialog
+import com.darvishiyan.spacex.models.ErrorDialogModel
 import com.darvishiyan.spacex.utils.EventHandler
 import io.reactivex.subjects.PublishSubject
 import org.koin.core.inject
@@ -35,7 +35,7 @@ class LaunchViewModel(
                 itemAdapter.items = data.sortedByDescending { it.staticFireDateUnix }
             },
             {
-                eventHandler.showErrorDialog(ErrorDialog(
+                eventHandler.showErrorDialog(ErrorDialogModel(
                     R.string.load_data_error_title,
                     R.string.load_data_error_message,
                     R.string.load_data_error_action

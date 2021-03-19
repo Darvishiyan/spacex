@@ -1,13 +1,14 @@
 package com.darvishiyan.spacex.units.main
 
 import android.view.MenuItem
-import androidx.appcompat.app.AlertDialog
 import androidx.databinding.ViewDataBinding
 import androidx.lifecycle.LifecycleOwner
 import com.darvishiyan.spacex.BR
 import com.darvishiyan.spacex.R
 import com.darvishiyan.spacex.core.BaseActivity
+import org.koin.android.ext.android.inject
 import org.koin.android.viewmodel.ext.android.viewModel
+import org.koin.core.parameter.parametersOf
 
 class MainActivity : BaseActivity<MainViewModel, ViewDataBinding>() {
 
@@ -31,13 +32,8 @@ class MainActivity : BaseActivity<MainViewModel, ViewDataBinding>() {
 
         viewModel.eventHandler.showErrorDialogObserver.observe(viewLifecycleOwner) { event ->
             event.getContentIfNotHandled()?.let { data ->
-                AlertDialog.Builder(this)
-                    .setTitle(data.title)
-                    .setMessage(data.message)
-                    .setPositiveButton(data.action) { dialog, _ ->
-                        dialog.dismiss()
-                        data.run()
-                    }.show()
+                val dialog: ErrorDialogFragment by inject { parametersOf(data) }
+                dialog.show(supportFragmentManager, "errorDialog")
             }
         }
     }
