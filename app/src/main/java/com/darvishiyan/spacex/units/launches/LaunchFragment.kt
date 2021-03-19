@@ -14,9 +14,11 @@ class LaunchFragment : BaseFragment<LaunchViewModel, ViewDataBinding>() {
     override val viewModel: LaunchViewModel by viewModel()
 
     override fun onActive() {
-        viewModel.onLaunchItemClick().subscribe {
-            //go to next page
-        }.addTo(compositeDisposable)
+        viewModel.onLaunchItemClick().subscribe({
+            navigator.navigate(LaunchFragmentDirections.actionLaunchFragmentToDetailFragment(it))
+        }, {
+            it.printStackTrace()
+        }).addTo(compositeDisposable)
     }
 
 }

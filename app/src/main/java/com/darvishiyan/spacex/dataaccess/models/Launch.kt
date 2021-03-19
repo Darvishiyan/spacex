@@ -1,7 +1,10 @@
 package com.darvishiyan.spacex.dataaccess.models
 
+import android.os.Parcelable
 import com.google.gson.annotations.SerializedName
+import kotlinx.android.parcel.Parcelize
 
+@Parcelize
 data class Launch(
     @SerializedName("launchpad") val launchpad: String?,
     @SerializedName("payloads") val payloads: List<String>?,
@@ -25,8 +28,9 @@ data class Launch(
     @SerializedName("name") val name: String?,
     @SerializedName("window") val window: Int?,
     @SerializedName("upcoming") val upcoming: Boolean?
-)
+) : Parcelable
 
+@Parcelize
 data class CoresItem(
     @SerializedName("core") val core: String?,
     @SerializedName("flight") val flight: Int?,
@@ -37,8 +41,9 @@ data class CoresItem(
     @SerializedName("landpad") val landpad: String?,
     @SerializedName("reused") val reused: Boolean?,
     @SerializedName("landing_success") val landingSuccess: Boolean?
-)
+) : Parcelable
 
+@Parcelize
 data class Links(
     @SerializedName("patch") val patch: Patch?,
     @SerializedName("webcast") val webcast: String? = "",
@@ -48,21 +53,24 @@ data class Links(
     @SerializedName("youtube_id") val youtubeId: String?,
     @SerializedName("presskit") val presskit: String?,
     @SerializedName("article") val article: String?
-)
+) : Parcelable
 
+@Parcelize
 data class Patch(
     @SerializedName("small") val small: String?,
     @SerializedName("large") val large: String?
-)
+) : Parcelable
 
+@Parcelize
 data class Flickr(
     @SerializedName("original") val original: List<String>?
-)
+) : Parcelable
 
+@Parcelize
 data class Reddit(
     @SerializedName("campaign") val campaign: String?,
     @SerializedName("launch") val launch: String?,
     @SerializedName("media") val media: String?,
-)
+) : Parcelable
 
 

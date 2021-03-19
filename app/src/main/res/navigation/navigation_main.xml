@@ -9,5 +9,18 @@
         android:id="@+id/launchFragment"
         android:name="com.darvishiyan.spacex.units.launches.LaunchFragment"
         android:label="LaunchFragment"
-        tools:layout="@layout/fragment_launch" />
+        tools:layout="@layout/fragment_launch">
+        <action
+            android:id="@+id/action_launchFragment_to_detailFragment"
+            app:destination="@id/detailFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/detailFragment"
+        android:name="com.darvishiyan.spacex.units.detail.DetailFragment"
+        android:label="DetailFragment"
+        tools:layout="@layout/fragment_detail">
+        <argument
+            android:name="launch"
+            app:argType="com.darvishiyan.spacex.dataaccess.models.Launch" />
+    </fragment>
 </navigation>

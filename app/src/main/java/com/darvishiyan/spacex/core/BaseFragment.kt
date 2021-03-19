@@ -80,7 +80,7 @@ abstract class BaseFragment<VM : BaseViewModel<DB, BaseModel>, DB : ViewDataBind
         onActive()
     }
 
-    abstract fun onActive()
+    open fun onActive() {}
 
     open fun onViewBounded(view: View, savedInstanceState: Bundle?) {
         navigator = Navigation.findNavController(view)
