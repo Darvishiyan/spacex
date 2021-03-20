@@ -9,6 +9,10 @@ import androidx.lifecycle.LifecycleOwner
 import androidx.lifecycle.LifecycleRegistry
 import androidx.recyclerview.widget.RecyclerView
 
+/**
+ * easy to use recycler view adapter
+ * that all items are lifecycle aware
+ */
 abstract class BaseRecyclerViewAdapter<T> :
     RecyclerView.Adapter<BaseRecyclerViewAdapter<T>.ItemViewHolder>() {
 
@@ -27,9 +31,7 @@ abstract class BaseRecyclerViewAdapter<T> :
     }
 
     open fun onBindView(
-        layoutInflater: LayoutInflater,
-        parent: ViewGroup,
-        viewType: Int
+        layoutInflater: LayoutInflater, parent: ViewGroup, viewType: Int
     ): ViewDataBinding =
         DataBindingUtil.inflate(layoutInflater, itemLayoutResId, parent, false)
 

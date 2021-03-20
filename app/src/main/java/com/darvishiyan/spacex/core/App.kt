@@ -14,6 +14,7 @@ class App : Application() {
         runKoin()
     }
 
+    //define koin modules and inject context to di graph
     private fun runKoin() {
         startKoin {
             androidContext(this@App)

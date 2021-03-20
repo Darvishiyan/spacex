@@ -35,33 +35,32 @@ abstract class BaseFragment<VM : BaseViewModel<DB, BaseModel>, DB : ViewDataBind
     }
 
     override fun onCreateView(
-        inflater: LayoutInflater,
-        container: ViewGroup?,
-        savedInstanceState: Bundle?
+        inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?
     ): View? {
         return onBindView(inflater, container)
     }
 
+    /**
+     * generate ViewDataBinding
+     * send ViewDataBinding to ViewModel
+     */
     private fun onBindView(
-        inflater: LayoutInflater,
-        container: ViewGroup?
+        inflater: LayoutInflater, container: ViewGroup?
     ): View {
         binding = bindView(inflater, layoutResId, container, viewModel)
         viewModel.onBindView(binding)
         return binding.root
     }
 
+    /**
+     * bind ViewModel to View
+     * inform ViewModel from lifecycle
+     */
     private fun bindView(
-        inflater: LayoutInflater,
-        layoutResId: Int,
-        container: ViewGroup?,
-        viewModel: VM
+        inflater: LayoutInflater, layoutResId: Int, container: ViewGroup?, viewModel: VM
     ): DB {
         return DataBindingUtil.inflate<DB>(
-            inflater,
-            layoutResId,
-            container,
-            false
+            inflater, layoutResId, container, false
         ).apply {
             setVariable(viewModelId, viewModel)
             lifecycleOwner = viewLifecycleOwner
@@ -70,6 +69,9 @@ abstract class BaseFragment<VM : BaseViewModel<DB, BaseModel>, DB : ViewDataBind
         }
     }
 
+    /**
+     * access to lifecycle owner
+     */
     open fun onLifecycleOwnerBounded(viewLifecycleOwner: LifecycleOwner) {
         viewModel.onLifecycleOwnerBounded(viewLifecycleOwner)
     }
@@ -80,8 +82,14 @@ abstract class BaseFragment<VM : BaseViewModel<DB, BaseModel>, DB : ViewDataBind
         onActive()
     }
 
+    /**
+     * call this function at the end of generating fragment
+     */
     open fun onActive() {}
 
+    /**
+     * define navigation and connect lifecycle
+     */
     open fun onViewBounded(view: View, savedInstanceState: Bundle?) {
         navigator = Navigation.findNavController(view)
         lifecycle.addObserver(viewModel)

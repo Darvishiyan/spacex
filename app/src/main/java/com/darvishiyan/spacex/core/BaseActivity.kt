@@ -22,6 +22,10 @@ abstract class BaseActivity<VM : BaseViewModel<DB, BaseModel>, DB : ViewDataBind
         onViewBounded(binding.root, savedInstanceState)
     }
 
+    /**
+     * bind ViewModel to View
+     * inform ViewModel from lifecycle
+     */
     private fun bindView(viewModel: VM): DB {
         return DataBindingUtil.setContentView<DB>(this, layoutResId).apply {
             setVariable(viewModelId, viewModel)
@@ -31,10 +35,16 @@ abstract class BaseActivity<VM : BaseViewModel<DB, BaseModel>, DB : ViewDataBind
         }.apply { viewModel.onBindView(this) }
     }
 
+    /**
+     * access to lifecycle owner
+     */
     open fun onLifecycleOwnerBounded(viewLifecycleOwner: LifecycleOwner) {
         viewModel.onLifecycleOwnerBounded(viewLifecycleOwner)
     }
 
+    /**
+     * access to View in ViewModel
+     */
     private fun onViewBounded(view: View, savedInstanceState: Bundle?) {
         lifecycle.addObserver(viewModel)
         viewModel.onViewBounded(view, savedInstanceState)
