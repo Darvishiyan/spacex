@@ -5,7 +5,7 @@ import com.darvishiyan.spacex.BR
 import com.darvishiyan.spacex.R
 import com.darvishiyan.spacex.core.BaseFragment
 import io.reactivex.rxkotlin.addTo
-import org.koin.android.viewmodel.ext.android.viewModel
+import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class LaunchFragment : BaseFragment<LaunchViewModel, ViewDataBinding>() {
 

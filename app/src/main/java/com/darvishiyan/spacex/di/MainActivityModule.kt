@@ -4,7 +4,7 @@ import com.darvishiyan.spacex.models.ErrorDialogModel
 import com.darvishiyan.spacex.units.main.ErrorDialogFragment
 import com.darvishiyan.spacex.units.main.MainModel
 import com.darvishiyan.spacex.units.main.MainViewModel
-import org.koin.android.viewmodel.dsl.viewModel
+import org.koin.androidx.viewmodel.dsl.viewModel
 import org.koin.dsl.module
 
 val mainActivityModule = module {

@@ -20,7 +20,7 @@ android {
     }
 
     buildTypes {
-        debug{
+        debug {
             // do not optimize resource
             crunchPngs false
             ext.alwaysUpdateBuildId = false
@@ -59,9 +59,11 @@ dependencies {
     androidTestImplementation "androidx.navigation:navigation-testing:$navigation_version"
 
     //koin
-    implementation 'org.koin:koin-android:2.0.1'
-    implementation 'org.koin:koin-android-viewmodel:2.0.1'
-    implementation 'org.koin:koin-androidx-viewmodel:2.0.1'
+    implementation "org.koin:koin-core:$koin_version"
+    testImplementation "org.koin:koin-test:$koin_version"
+    implementation "org.koin:koin-androidx-scope:$koin_version"
+    implementation "org.koin:koin-androidx-viewmodel:$koin_version"
+    implementation "org.koin:koin-androidx-fragment:$koin_version"
 
     //rx
     implementation 'io.reactivex.rxjava2:rxkotlin:2.3.0'

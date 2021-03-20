@@ -4,7 +4,7 @@ import com.darvishiyan.spacex.dataaccess.models.Launch
 import com.darvishiyan.spacex.units.launches.LaunchAdapter
 import com.darvishiyan.spacex.units.launches.LaunchModel
 import com.darvishiyan.spacex.units.launches.LaunchViewModel
-import org.koin.android.viewmodel.dsl.viewModel
+import org.koin.androidx.viewmodel.dsl.viewModel
 import org.koin.dsl.module
 
 val launchFragmentModule = module {
